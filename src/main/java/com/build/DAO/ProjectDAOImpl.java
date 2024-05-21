@@ -17,11 +17,11 @@ public class ProjectDAOImpl implements ProjectDAO {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 Project project = new Project();
-                project.setProject_id(rs.getInt("id"));
+                project.setProject_id(rs.getInt("project_Id"));
                 project.setName(rs.getString("name"));
                 project.setDescription(rs.getString("description"));
-                project.setStartDate(rs.getDate("start_date"));
-                project.setEndDate(rs.getDate("end_date"));
+                project.setStartDate(rs.getDate("startDate"));
+                project.setEndDate(rs.getDate("endDate"));
                 project.setBudget(rs.getDouble("budget"));
                 projects.add(project);
             }
@@ -34,7 +34,7 @@ public class ProjectDAOImpl implements ProjectDAO {
     @Override
     public void addProject(Project project) {
         try (Connection conn =  Databasemanager.getConnection()) {
-            String query = "INSERT INTO projet (name, description, start_date, end_date, budget) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO projet (name, description, startDate, endDate, budget) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, project.getName());
             pstmt.setString(2, project.getDescription());

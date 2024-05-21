@@ -11,10 +11,14 @@ public class Project {
     private double budget;
 
     public Project() {
-
     }
 
-    public Project(String name, String description, String startDate, String endDate, double budget) {
+    public Project(String name, String description, Date startDate, Date endDate, double budget) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.budget = budget;
     }
 
     public int getProject_id() {
