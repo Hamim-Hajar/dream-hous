@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.build.classes.Project" %>
+<%@ page import="com.build.servlets.ProjectServlet" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,11 +53,11 @@
                         <p class="card-text">Start Date: <c:out value="${project.startDate != null ? project.startDate : 'N/A'}"/></p>
                         <p class="card-text">End Date: <c:out value="${project.endDate != null ? project.endDate : 'N/A'}"/></p>
                         <p class="card-text">Budget: ${project.budget}</p>
-                        <form action="editProject.jsp" method="get" style="display: inline;">
+                        <form action="EditProjectServlet" method="get" style="display: inline;">
                             <input type="hidden" name="id" value="${project.project_id}" />
                             <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                         </form>
-                        <form action="ProjectServlet" method="post" style="display: inline;">
+                        <form action="DeleteServlet" method="post" style="display: inline;">
                             <input type="hidden" name="action" value="delete" />
                             <input type="hidden" name="projectId" value="${project.project_id}" />
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -30,7 +30,6 @@ public class ProjectServlet extends HttpServlet {
         try {
             List<Project> projects = projectDAO.getAllProjects();
             request.setAttribute("projects", projects);
-
             request.getRequestDispatcher("/WEB-INF/project.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,6 +49,9 @@ public class ProjectServlet extends HttpServlet {
                         break;
                     case "delete":
                         deleteProject(request, response);
+                        break;
+                    case "update":
+                        updateProject(request, response);
                         break;
                     default:
                         break;
@@ -104,6 +106,38 @@ public class ProjectServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Error in deleteProject: " + e.getMessage());
+        }
+    }
+
+    private void updateProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int projectId = Integer.parseInt(request.getParameter("projectId"));
+            String name = request.getParameter("name");
+            String description = request.getParameter("description");
+            String startDateStr = request.getParameter("startDate");
+            String endDateStr = request.getParameter("endDate");
+            double budget = Double.parseDouble(request.getParameter("budget"));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date startDate = null;
+            Date endDate = null;
+
+            if (startDateStr != null && !startDateStr.isEmpty()) {
+                startDate = dateFormat.parse(startDateStr);
+            }
+
+            if (endDateStr != null && !endDateStr.isEmpty()) {
+                endDate = dateFormat.parse(endDateStr);
+            }
+
+            Project project = new Project(projectId, name, description, startDate, endDate, budget);
+            projectDAO.updateProject(project);
+
+            response.sendRedirect(request.getContextPath() + "/ProjectServlet");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error in updateProject: " + e.getMessage());
         }
     }
 
