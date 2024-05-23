@@ -1,7 +1,9 @@
 package com.build.DAO;
 
 
-import Model.Resource;
+
+import com.build.classes.Resource;
+
 import java.sql.SQLException;
 import java.util.List;
 

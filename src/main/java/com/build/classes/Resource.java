@@ -1,34 +1,54 @@
 package com.build.classes;
 
 public class Resource {
-    private int id;
-    private String name;
-    private String type;
+    private int rId;
+    private String rName;
+    private String rType;
     private int quantity;
-    private String fournisseurInfo;
+    private String provider;
+    private int tId;
 
-    public int getId() {
-        return id;
+    public Resource() {}
+
+    public Resource(int rId, String rName, String rType, int quantity, String provider, int tId) {
+        this.rId = rId;
+        this.rName = rName;
+        this.rType = rType;
+        this.quantity = quantity;
+        this.provider = provider;
+        this.tId = tId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Resource(String rName, String rType, int quantity, String provider, int rId) {
+        this.rName = rName;
+        this.rType = rType;
+        this.quantity = quantity;
+        this.provider = provider;
+        this.rId = rId;
     }
 
-    public String getName() {
-        return name;
+    public int getrId() {
+        return rId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setrId(int rId) {
+        this.rId = rId;
     }
 
-    public String getType() {
-        return type;
+    public String getrName() {
+        return rName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setrName(String rName) {
+        this.rName = rName;
+    }
+
+    public String getrType() {
+        return rType;
+    }
+
+    public void setrType(String rType) {
+        this.rType = rType;
     }
 
     public int getQuantity() {
@@ -39,30 +59,19 @@ public class Resource {
         this.quantity = quantity;
     }
 
-    public String getFournisseurInfo() {
-        return fournisseurInfo;
+    public String getProvider() {
+        return provider;
     }
 
-    public void setFournisseurInfo(String fournisseurInfo) {
-        this.fournisseurInfo = fournisseurInfo;
-    }
-//constractor
-    public Resource(int id, String name, String type, int quantity, String fournisseurInfo) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.quantity = quantity;
-        this.fournisseurInfo = fournisseurInfo;
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 
-    @Override
-    public String toString() {
-        return "Resource{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", quantity=" + quantity +
-                ", fournisseurInfo='" + fournisseurInfo + '\'' +
-                '}';
+    public int gettId() {
+        return tId;
+    }
+
+    public void settId(int tId) {
+        this.tId = tId;
     }
 }
