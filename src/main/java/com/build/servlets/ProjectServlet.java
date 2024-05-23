@@ -53,6 +53,9 @@ public class ProjectServlet extends HttpServlet {
                     case "update":
                         updateProject(request, response);
                         break;
+                    case "addtask":
+                        updateProject(request, response);
+                        break;
                     default:
                         break;
                 }

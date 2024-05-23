@@ -1,82 +1,96 @@
 package com.build.classes;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Task {
-    private int id;
-    private int projectId;
-    private String description;
-    private Date startDate;
-    private Date endDate;
-    private String status;
+    private int tId;
+    private String tDescription;
+    private String tStartdate;
+    private String tEndDate;
+    private String statut;
+    private String resources;
+    private int pId;
 
-    public int getId() {
-        return id;
+    public Task() {}
+
+
+    public Task(int tId, String tDescription, String tStartdate, String tEndDate, String statut, String resources, int pId) {
+        this.tId = tId;
+        this.tDescription = tDescription;
+        this.tStartdate = tStartdate;
+        this.tEndDate = tEndDate;
+        this.statut = statut;
+        this.resources = resources;
+        this.pId = pId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int gettId() {
+        return tId;
     }
 
-    public int getProjectId() {
-        return projectId;
+    public void settId(int tId) {
+        this.tId = tId;
     }
 
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
+    public String gettDescription() {
+        return tDescription;
     }
 
-    public String getDescription() {
-        return description;
+    public void settDescription(String tDescription) {
+        this.tDescription = tDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String gettStartdate() {
+        return tStartdate;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public void settStartdate(String tStartdate) {
+        this.tStartdate = tStartdate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public String gettEndDate() {
+        return tEndDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public void settEndDate(String tEndDate) {
+        this.tEndDate = tEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public String getStatut() {
+        return statut;
     }
 
-    public String getStatus() {
-        return status;
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public String getResources() {
+        return resources;
     }
-//constractor
 
-    public Task(int id, int projectId, String description, Date startDate, Date endDate, String status) {
-        this.id = id;
-        this.projectId = projectId;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.status = status;
+    public void setResources(String resources) {
+        this.resources = resources;
+    }
+
+    public int getpId() {
+        return pId;
+    }
+
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
     @Override
     public String toString() {
         return "Task{" +
-                "id=" + id +
-                ", projectId=" + projectId +
-                ", description='" + description + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", status='" + status + '\'' +
+                "tId=" + tId +
+                ", tDescription='" + tDescription + '\'' +
+                ", tStartdate=" + tStartdate +
+                ", tEndDate=" + tEndDate +
+                ", statut='" + statut + '\'' +
+                ", resources='" + resources + '\'' +
+                ", pId=" + pId +
                 '}';
     }
 }

@@ -41,19 +41,18 @@ public class EditProjectServlet extends HttpServlet {
             String endDateStr = request.getParameter("endDate");
             double budget = Double.parseDouble(request.getParameter("budget"));
 
-            // Mettre à jour le projet dans la base de données
+
             Project updatedProject = new Project(projectId, name, description,
                     Date.valueOf(startDateStr),
                     Date.valueOf(endDateStr),
                     budget);
             projectDAO.updateProject(updatedProject);
 
-            // Rediriger vers une page de confirmation ou autre
+
             response.sendRedirect(request.getContextPath() + "/ProjectServlet");
         } catch (Exception e) {
             e.printStackTrace();
-            // Gérer les erreurs (par exemple, afficher un message d'erreur ou rediriger vers une page d'erreur)
-            //response.sendRedirect(request.getContextPath() + "/error.jsp");
+
         }
 
     }
