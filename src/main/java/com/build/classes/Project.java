@@ -1,64 +1,68 @@
 package com.build.classes;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 public class Project {
-    private int project_id;
-    private String name;
-    private String description;
-    private Date startDate;
-    private Date endDate;
+    private int pId;
+    private String pName;
+    private String pDescription;
+    private Date pStartdate;
+    private Date pEndDate;
     private double budget;
 
-    public Project() {
-    }
+    // Constructeurs, getters et setters
 
-    public Project(String name, String description, Date startDate, Date endDate, double budget) {
-        this.name = name;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Project() {}
+
+    public Project(int pId, String pName, String pDescription, Date pStartdate, Date pEndDate, double budget) {
+        this.pId = pId;
+        this.pName = pName;
+        this.pDescription = pDescription;
+        this.pStartdate = pStartdate;
+        this.pEndDate = pEndDate;
         this.budget = budget;
     }
 
-    public int getProject_id() {
-        return project_id;
+    public int getpId() {
+        return pId;
     }
 
-    public void setProject_id(int project_id) {
-        this.project_id = project_id;
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
-    public String getName() {
-        return name;
+    public String getpName() {
+        return pName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setpName(String pName) {
+        this.pName = pName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getpDescription() {
+        return pDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setpDescription(String pDescription) {
+        this.pDescription = pDescription;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getpStartdate() {
+        return pStartdate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setpStartdate(Date pStartdate) {
+        this.pStartdate = pStartdate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getpEndDate() {
+        return pEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setpEndDate(Date pEndDate) {
+        this.pEndDate = pEndDate;
     }
 
     public double getBudget() {
@@ -68,25 +72,15 @@ public class Project {
     public void setBudget(double budget) {
         this.budget = budget;
     }
-//constractor
-
-    public Project(int project_id, String name, String description, Date startDate, Date endDate, double budget) {
-        this.project_id = project_id;
-        this.name = name;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.budget = budget;
-    }
 
     @Override
     public String toString() {
         return "Project{" +
-                "project_id=" + project_id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                "pId=" + pId +
+                ", pName='" + pName + '\'' +
+                ", pDescription='" + pDescription + '\'' +
+                ", pStartdate=" + pStartdate +
+                ", pEndDate=" + pEndDate +
                 ", budget=" + budget +
                 '}';
     }

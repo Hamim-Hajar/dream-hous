@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.build.classes.Project" %>
-<%@ page import="com.build.servlets.ProjectServlet" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -66,23 +65,22 @@
             <div class="col-md-4 mt-4">
                 <div class="card">
                     <div class="card-header">
-                        Project: ${project.name}
+                        Project: ${project.pName}
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">${project.name}</h5>
-                        <p class="card-text">${project.description}</p>
-                        <p class="card-text">Start Date: <c:out value="${project.startDate != null ? project.startDate : 'N/A'}"/></p>
-                        <p class="card-text">End Date: <c:out value="${project.endDate != null ? project.endDate : 'N/A'}"/></p>
+                        <h5 class="card-title">${project.pName}</h5>
+                        <p class="card-text">${project.pDescription}</p>
+                        <p class="card-text">Start Date: <c:out value="${project.pStartdate != null ? project.pStartdate : 'N/A'}"/></p>
+                        <p class="card-text">End Date: <c:out value="${project.pEndDate != null ? project.pEndDate : 'N/A'}"/></p>
                         <p class="card-text">Budget: ${project.budget}</p>
                         <a href="${pageContext.request.contextPath}/ListTasksServlet?projectId=${project.pId}" class="task-button">See All Tasks</a>
 
                         <form action="EditProjectServlet" method="get" style="display: inline;">
-                            <input type="hidden" name="id" value="${project.project_id}" />
+                            <input type="hidden" name="projectId" value="${project.pId}" />
                             <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                         </form>
-                        <form action="DeleteServlet" method="post" style="display: inline;">
-                            <input type="hidden" name="action" value="delete" />
-                            <input type="hidden" name="projectId" value="${project.project_id}" />
+                        <form action="ProjectServlet?action=delete" method="post" style="display: inline;">
+                            <input type="hidden" name="projectId" value="${project.pId}" />
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </div>

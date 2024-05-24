@@ -22,19 +22,26 @@ public class EditProjectServlet extends HttpServlet {
         projectDAO = new ProjectDAOImpl();
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       int id = Integer.parseInt(request.getParameter("id"));
-       Project project =projectDAO.getProjectById(id);
-       request.setAttribute("project", project);
-       request.getRequestDispatcher("/WEB-INF/editProject.jsp").forward(request, response);
+        String idParam = request.getParameter("projectId");
+        if (idParam != null && !idParam.isEmpty()) {
+            int id = Integer.parseInt(idParam);
+            Project project = projectDAO.getProjectById(id);
+            request.setAttribute("project", project);
+        }
+        request.getRequestDispatcher("/WEB-INF/editProject.jsp").forward(request, response);
     }
 
+
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            // Récupérer les paramètres du formulaire
-            int projectId = Integer.parseInt(request.getParameter("project_Id"));
+
+            int projectId = Integer.parseInt(request.getParameter("projectId"));
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             String startDateStr = request.getParameter("startDate");
@@ -42,18 +49,32 @@ public class EditProjectServlet extends HttpServlet {
             double budget = Double.parseDouble(request.getParameter("budget"));
 
 
-            Project updatedProject = new Project(projectId, name, description,
-                    Date.valueOf(startDateStr),
-                    Date.valueOf(endDateStr),
-                    budget);
-            projectDAO.updateProject(updatedProject);
+            Date startDate = null;
+            if (startDateStr != null && !startDateStr.isEmpty()) {
+                try {
+                    startDate = Date.valueOf(startDateStr);
+                } catch (IllegalArgumentException e) {
 
+                    e.printStackTrace();
+                }
+            }
+            Date endDate = null;
+            if (endDateStr != null && !endDateStr.isEmpty()) {
+                try {
+                    endDate = Date.valueOf(endDateStr);
+                } catch (IllegalArgumentException e) {
+
+                    e.printStackTrace();
+                }
+            }
+
+            Project updatedProject = new Project(projectId, name, description, startDate, endDate, budget);
+            projectDAO.updateProject(updatedProject);
 
             response.sendRedirect(request.getContextPath() + "/ProjectServlet");
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-
     }
+
 }

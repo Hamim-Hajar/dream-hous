@@ -1,8 +1,8 @@
 package com.build.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import com.build.DAO.ProjectDAO;
@@ -53,10 +53,8 @@ public class ProjectServlet extends HttpServlet {
                     case "update":
                         updateProject(request, response);
                         break;
-                    case "addtask":
-                        updateProject(request, response);
-                        break;
                     default:
+                        response.sendRedirect(request.getContextPath() + "/ProjectServlet");
                         break;
                 }
             } catch (Exception e) {
@@ -69,31 +67,18 @@ public class ProjectServlet extends HttpServlet {
     private void addProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String name = request.getParameter("name");
-            String description = request.getParameter("description");
-            String startDateStr = request.getParameter("startDate");
-            String endDateStr = request.getParameter("endDate");
+            String pName = request.getParameter("name");
+            String pDescription = request.getParameter("description");
+            String pStartDateStr = request.getParameter("startDate");
+            String pEndDateStr = request.getParameter("endDate");
             double budget = Double.parseDouble(request.getParameter("budget"));
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date startDate = null;
-            Date endDate = null;
+            Date pStartDate = Date.valueOf(pStartDateStr);
+            Date pEndDate = Date.valueOf(pEndDateStr);
 
-            if (startDateStr != null && !startDateStr.isEmpty()) {
-                startDate = dateFormat.parse(startDateStr);
-            }
-
-            if (endDateStr != null && !endDateStr.isEmpty()) {
-                endDate = dateFormat.parse(endDateStr);
-            }
-
-            Project project = new Project(name, description, startDate, endDate, budget);
+            Project project = new Project(0, pName, pDescription, pStartDate, pEndDate, budget);
             projectDAO.addProject(project);
-            request.setAttribute("addedProject", project);
-            List<Project> projects = projectDAO.getAllProjects();
-            request.setAttribute("projects", projects);
-
-            request.getRequestDispatcher("/WEB-INF/project.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/ProjectServlet");
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Error in addProject: " + e.getMessage());
@@ -115,28 +100,18 @@ public class ProjectServlet extends HttpServlet {
     private void updateProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int projectId = Integer.parseInt(request.getParameter("projectId"));
-            String name = request.getParameter("name");
-            String description = request.getParameter("description");
-            String startDateStr = request.getParameter("startDate");
-            String endDateStr = request.getParameter("endDate");
+            int pId = Integer.parseInt(request.getParameter("projectId"));
+            String pName = request.getParameter("name");
+            String pDescription = request.getParameter("description");
+            String pStartDateStr = request.getParameter("startDate");
+            String pEndDateStr = request.getParameter("endDate");
             double budget = Double.parseDouble(request.getParameter("budget"));
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date startDate = null;
-            Date endDate = null;
+            Date pStartDate = Date.valueOf(pStartDateStr);
+            Date pEndDate = Date.valueOf(pEndDateStr);
 
-            if (startDateStr != null && !startDateStr.isEmpty()) {
-                startDate = dateFormat.parse(startDateStr);
-            }
-
-            if (endDateStr != null && !endDateStr.isEmpty()) {
-                endDate = dateFormat.parse(endDateStr);
-            }
-
-            Project project = new Project(projectId, name, description, startDate, endDate, budget);
+            Project project = new Project(pId, pName, pDescription, pStartDate, pEndDate, budget);
             projectDAO.updateProject(project);
-
             response.sendRedirect(request.getContextPath() + "/ProjectServlet");
         } catch (Exception e) {
             e.printStackTrace();
