@@ -6,12 +6,13 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color:white;
+    color: black;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-decoration-color: black;
 }
 
 header .logo img {
@@ -30,7 +31,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -57,10 +58,11 @@ nav ul li a {
 
 .hero-text .btn {
     padding: 10px 20px;
-    background-color: orange;
+    background-color: black;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    gap: 3px;
 }
 
 .team {
@@ -149,3 +151,209 @@ footer {
     color: white;
     text-decoration: none;
 }
+/*project css*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container-flex {
+    display: flex;
+    height: 80vh;
+}
+.header {
+    position: relative;
+    flex: 3;
+    color: white;
+    text-align: center;
+    padding: 5rem 0;
+    overflow: hidden;
+}
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ytimg.com/vi/2k0h9GsNucQ/maxresdefault.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) opacity(0.8);
+    z-index: 0;
+}
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+.sidebar {
+    flex: 1; /* Adjust the flex value as needed */
+    background-color: #FFA500; /* Light background color */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: auto;
+    margin-bottom: 100%;
+    height: 100%;
+}
+.sidebar h2 {
+    font-size: 1.5rem;
+}
+.sidebar h4 {
+    font-size: 1.25rem;
+
+}
+.sidebar p {
+    font-size: 1rem;
+    color: white;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+h1::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 100px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+}
+h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid #FFA500;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #FFA500;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: black;
+    font-weight: bold;
+    padding: 5px ;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 800px;
+}
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 4rem 0;
+}
+.footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #ffcd39;
+    text-decoration: underline;
+}
+.footer h5 {
+    margin-bottom: 1.5rem;
+}
+.footer .social-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    color: #ffc107;
+}
+.footer .social-icons a:hover {
+    color: #ffcd39;
+}
+.footer .container {
+    max-width: 1200px;
+}
+/*delete button*/
+.delete-btn,
+.update-btn {
+    background-color: #ffffff;
+    border-color: #ffa500;
+    color: #ffa500;
+}
+.delete-btn:hover,
+.update-btn:hover {
+    background-color: #ffa500;
+    color: #ffffff;
+}
+.show-btn {
+    background-color: #000000;
+    color: white;
+}
+.show-btn:hover {
+    background-color: #333333;
+}
+.member img{
+    height: 100PX;
+    width: 100PX;
+}
+.a btn {
+    color: white;
+    background-color: orange;
+    border: #FF8C00;
+}
+.a btn :hover{
+    background-color: #333333;
+}
+.delete-button{
+    color: white;
+    background-color: red;
+    border: red;
+}
+.update-button{
+    color: white;
+    background-color: orange;
+    border: #FF8C00;
+}
+.card-body a{
+    color: white;
+    background-color: black;
+    border: black;
+}
+.card-body img{
+    width: 200px;
+    height: 200px;
+}
+.navbar-brand img{
+    width: 60px;
+    height: 60px;
+}
+/*home style*/
+
