@@ -38,7 +38,8 @@
                 Ut quis egestas pellentesque libero dolor in diam consequat ut.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Ut quis egestas pellentesque libero </p>
-            <a href="${pageContext.request.contextPath}/prj" class="btn btn-warning">GET A FREE QUOTE</a>
+
+            <a  href="${pageContext.request.contextPath}/prj" class="btn btn-warning">Our Projects</a>
         </div>
     </header>
     <section class="sidebar">

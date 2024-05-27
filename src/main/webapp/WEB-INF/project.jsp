@@ -49,7 +49,7 @@
                 Ut quis egestas pellentesque libero dolor in diam consequat ut.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Ut quis egestas pellentesque libero </p>
-            <a href="${pageContext.request.contextPath}/prj" class="btn btn-warning">GET A FREE QUOTE</a>
+            <a href="${pageContext.request.contextPath}/prj" class="btn btn-warning">project</a>
         </div>
     </header>
     <section class="sidebar">
@@ -133,7 +133,6 @@
             <c:forEach var="project" items="${projects}">
                 <div class="col-md-4 mt-4">
                     <div class="card mb-4">
-                        <img class="card-img-top" src="project1.jpg" alt="Project Image">
                         <div class="card-body">
                             <img src="https://5.imimg.com/data5/MD/HY/CS/SELLER-41179378/building-construction-project.jpg">
                             <h5 class="card-title">Project Name: ${project.pName}</h5>
